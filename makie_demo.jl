@@ -32,28 +32,31 @@ contour(rand(10, 10, 10))
 # layout
 fig = Figure(size=(800, 600))
 
+# axes
 ax1 = Axis(fig[1, 1]; title="Axis 1")
 ax2 = Axis(fig[1, 2][1, 1]; title="Axis 2", aspect=DataAspect())
 ax3 = Axis3(fig[2, 1][1, 1]; title="Axis 3")
 ax4 = Axis3(fig[2, 2][1, 1]; title="Axis 4")
 
+# plot to axis
 lines!(ax1, cumsum(randn(1000)))
 
+# create colorbars
 hm = heatmap!(ax2, rand(50, 50); colormap=:copper)
 Colorbar(fig[1, 2][1, 2], hm)
 
 scatter!(ax3, rand(3, 100); color=rand(100))
 
+# add data inspector
 DataInspector()
 
+# interactive components
 xs = range(-2π, 2π, 50)
 ys = range(-2π, 2π, 50)
 zs = range(-2π, 2π, 50)
 
 data = [sin(x) * cos(y) * sin(z) for x in xs, y in ys, z in zs]
-
 vs = volumeslices!(ax4, xs, ys, zs, data; inspectable=false)
-
 rowsize!(fig.layout, 1, Relative(1 / 3))
 
 # sliders
@@ -64,7 +67,6 @@ sg = SliderGrid(fig[2, 2][2, 1],
 )
 
 sl_yz, sl_xz, sl_xy = sg.sliders
-
 on(sl_yz.value) do v
     vs[:update_yz][](v)
 end
