@@ -76,3 +76,6 @@ end
 on(sl_xy.value) do v
     vs[:update_xy][](v)
 end
+
+# save a figure on disk
+save("figure.png", fig)
