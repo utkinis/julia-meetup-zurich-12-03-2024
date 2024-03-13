@@ -40,8 +40,7 @@ for t in 0:0.1:10
 end
 
 # ------------------------------------
-
-# actually, even without using observables, Makie creates them for plotting
+# even without using observables, Makie creates them internally
 t = 1.0
 points = sin.(xs .+ 0.25 * t) .* cos.(ys' .- 1.0 * t)
 
