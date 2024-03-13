@@ -35,7 +35,7 @@ fig = Figure(size=(800, 600))
 # axes
 ax1 = Axis(fig[1, 1]; title="Axis 1")
 ax2 = Axis(fig[1, 2][1, 1]; title="Axis 2", aspect=DataAspect())
-ax3 = Axis3(fig[2, 1][1, 1]; title="Axis 3")
+ax3 = Axis3(fig[2, 1][1, 1]; title=L"$\Sigma_0^\infty$")
 ax4 = Axis3(fig[2, 2][1, 1]; title="Axis 4")
 
 # plot to axis
